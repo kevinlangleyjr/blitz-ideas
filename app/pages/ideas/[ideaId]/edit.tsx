@@ -4,6 +4,7 @@ import Layout from 'app/core/layouts/Layout';
 import getIdea from 'app/ideas/queries/getIdea';
 import updateIdea from 'app/ideas/mutations/updateIdea';
 import { IdeaForm, FORM_ERROR } from 'app/ideas/components/IdeaForm';
+import { UpdateIdea } from 'app/ideas/validations';
 
 export const EditIdea = () => {
   const router = useRouter();
@@ -25,12 +26,11 @@ export const EditIdea = () => {
         // TODO use a zod schema for form validation
         //  - Tip: extract mutation's schema into a shared `validations.ts` file and
         //         then import and use it here
-        // schema={UpdateIdea}
+        schema={ UpdateIdea }
         initialValues={ idea }
         onSubmit={ async ( values ) => {
           try {
             const updated = await updateIdeaMutation( {
-              id: idea.id,
               ...values
             } );
             await setQueryData( updated );

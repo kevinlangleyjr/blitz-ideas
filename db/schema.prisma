@@ -62,4 +62,14 @@ model Idea {
   title     String
   body      String
   author    User
+  comments  Comment[]
+}
+
+model Comment {
+  id        Int      @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  body      String
+  idea      Idea     @relation(fields: [ideaId], references: [id])
+  ideaId    Int
 }

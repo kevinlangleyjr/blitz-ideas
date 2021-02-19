@@ -27,8 +27,12 @@ export const Idea = () => {
         type="button"
         onClick={ async () => {
           if ( window.confirm( 'This will be deleted' ) ) {
-            await deleteIdeaMutation( { id: idea.id } );
-            router.push( '/ideas' );
+            try {
+              await deleteIdeaMutation( { id: idea.id } );
+              router.push( '/ideas' );
+            } catch( error ) {
+              console.error( error );
+            }
           }
         } }
         style={ { marginLeft: '0.5rem' } }

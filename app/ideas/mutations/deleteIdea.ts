@@ -1,18 +1,28 @@
-import { resolver } from 'blitz';
+import {
+  AuthorizationError,
+  Ctx,
+  NotFoundError,
+  resolver,
+} from 'blitz';
 import db from 'db';
-import * as z from 'zod';
-
-const DeleteIdea = z.object( {
-  id: z.number(),
-} ).nonstrict();
+import { DeleteIdea } from 'app/ideas/validations';
 
 export default resolver.pipe(
   resolver.zod( DeleteIdea ),
   resolver.authorize(),
-  async ( { id } ) => {
-    // TODO: in multi-tenant app, you must add validation to ensure correct tenant
-    const idea = await db.idea.deleteMany( { where: { id } } );
+  async ( { id }, ctx: Ctx ) => {
+    if ( ctx.session.role !== 'ADMIN' ) {
+      const idea = await db.idea.findFirst( { where: { id } } );
 
-    return idea;
+      if ( ! idea ) {
+        throw new NotFoundError();
+      }
+
+      if ( idea.userId !== ctx.session.userId ) {
+        throw new AuthorizationError( 'You are not authorized to delete this idea.' );
+      }
+    }
+
+    return await db.idea.deleteMany( { where: { id } } );
   },
 );

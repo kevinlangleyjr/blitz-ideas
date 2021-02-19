@@ -1,11 +1,6 @@
 import { Ctx, resolver } from 'blitz';
 import db from 'db';
-import * as z from 'zod';
-
-const CreateIdea = z.object( {
-  title: z.string(),
-  body: z.string(),
-} ).nonstrict();
+import { CreateIdea } from 'app/ideas/validations';
 
 export default resolver.pipe(
   resolver.zod( CreateIdea ),
@@ -15,7 +10,6 @@ export default resolver.pipe(
       return;
     }
 
-    // TODO: in multi-tenant app, you must add validation to ensure correct tenant
     const idea = await db.idea.create( { data: {
       ...input,
       author: {

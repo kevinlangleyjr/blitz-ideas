@@ -1,20 +1,29 @@
-import { resolver } from 'blitz';
+import {
+  AuthorizationError,
+  Ctx,
+  NotFoundError,
+  resolver,
+} from 'blitz';
 import db from 'db';
-import * as z from 'zod';
-
-const UpdateIdea = z.object( {
-  id: z.number(),
-  title: z.string(),
-  body: z.string(),
-} ).nonstrict();
+import { UpdateIdea } from 'app/ideas/validations';
 
 export default resolver.pipe(
   resolver.zod( UpdateIdea ),
   resolver.authorize(),
-  async ( { id, ...data } ) => {
-    // TODO: in multi-tenant app, you must add validation to ensure correct tenant
-    const idea = await db.idea.update( { where: { id }, data } );
+  async ( { id, ...data }, ctx: Ctx ) => {
+    console.log( ctx.session.role );
+    if ( ctx.session.role !== 'ADMIN' ) {
+      const idea = await db.idea.findFirst( { where: { id } } );
 
-    return idea;
+      if ( ! idea ) {
+        throw new NotFoundError();
+      }
+
+      if ( idea.userId !== ctx.session.userId ) {
+        throw new AuthorizationError( 'You are not authorized to edit this idea.' );
+      }
+    }
+
+    return await db.idea.update( { where: { id }, data } );
   },
 );
