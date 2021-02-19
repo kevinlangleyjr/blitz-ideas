@@ -23,9 +23,11 @@ const NewIdeaPage: BlitzPage = () => {
             const idea = await createIdeaMutation(
               values,
             );
-            router.push(
-              `/ideas/${idea.id}`,
-            );
+            if ( idea?.id ) {
+              router.push(
+                `/ideas/${idea.id}`,
+              );
+            }
           } catch ( error ) {
             console.error( error );
             return {
