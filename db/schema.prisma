@@ -54,3 +54,12 @@ model Token {
 
   @@unique([hashedToken, type])
 }
+
+model Idea {
+  id        Int      @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String
+  body      String
+  author    User
+}

@@ -1,0 +1,61 @@
+import { Suspense } from 'react';
+import { Head, Link, useRouter, useQuery, useParam, BlitzPage, useMutation } from 'blitz';
+import Layout from 'app/core/layouts/Layout';
+import getIdea from 'app/ideas/queries/getIdea';
+import deleteIdea from 'app/ideas/mutations/deleteIdea';
+
+export const Idea = () => {
+  const router = useRouter();
+  const ideaId = useParam( 'ideaId', 'number' );
+  const [ deleteIdeaMutation ] = useMutation( deleteIdea );
+  const [ idea ] = useQuery( getIdea, { id: ideaId } );
+
+  return <>
+    <Head>
+      <title>Idea { idea.id }</title>
+    </Head>
+
+    <div>
+      <h1>Idea { idea.id }</h1>
+      <pre>{ JSON.stringify( idea, null, 2 ) }</pre>
+
+      <Link href={ `/ideas/${idea.id}/edit` }>
+        <a>Edit</a>
+      </Link>
+
+      <button
+        type="button"
+        onClick={ async () => {
+          if ( window.confirm( 'This will be deleted' ) ) {
+            await deleteIdeaMutation( { id: idea.id } );
+            router.push( '/ideas' );
+          }
+        } }
+        style={ { marginLeft: '0.5rem' } }
+      >
+        Delete
+      </button>
+    </div>
+  </>;
+};
+
+const ShowIdeaPage: BlitzPage = () => {
+  return (
+    <div>
+      <p>
+        <Link href="/ideas">
+          <a>Ideas</a>
+        </Link>
+      </p>
+
+      <Suspense fallback={ <div>Loading...</div> }>
+        <Idea />
+      </Suspense>
+    </div>
+  );
+};
+
+ShowIdeaPage.authenticate = true;
+ShowIdeaPage.getLayout = ( page ) => <Layout>{ page }</Layout>;
+
+export default ShowIdeaPage;
