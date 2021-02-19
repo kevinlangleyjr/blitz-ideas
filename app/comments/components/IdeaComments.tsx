@@ -40,7 +40,7 @@ export const IdeaCommentsList = () => {
         } }
         onSubmit={ async ( values, form ) => {
           try {
-            const comment = await createCommentMutation( {
+            await createCommentMutation( {
               ...values,
               ideaId,
             } );
