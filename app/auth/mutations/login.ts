@@ -5,7 +5,9 @@ import { Role } from "types"
 
 export const authenticateUser = async (email: string, password: string) => {
   const user = await db.user.findFirst({ where: { email } })
-  if (!user) throw new AuthenticationError()
+  if (!user) {
+    throw new AuthenticationError()
+  }
 
   const result = await SecurePassword.verify(user.hashedPassword, password)
 
