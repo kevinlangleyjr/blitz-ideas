@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Head, Link, useRouter, useQuery, useParam, BlitzPage, useMutation } from 'blitz';
 import Layout from 'app/core/layouts/Layout';
+import IdeaCommentsList from 'app/comments/components/IdeaComments';
 import getIdea from 'app/ideas/queries/getIdea';
 import deleteIdea from 'app/ideas/mutations/deleteIdea';
 
@@ -54,6 +55,7 @@ const ShowIdeaPage: BlitzPage = () => {
 
       <Suspense fallback={ <div>Loading...</div> }>
         <Idea />
+        <IdeaCommentsList />
       </Suspense>
     </div>
   );
