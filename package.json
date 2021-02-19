@@ -13,14 +13,10 @@
   "prisma": {
     "schema": "db/schema.prisma"
   },
-  "prettier": {
-    "semi": false,
-    "printWidth": 100
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "tsc && npm run lint && npm run test"
+      "pre-push": "tsc && npm run lint"
     }
   },
   "lint-staged": {
