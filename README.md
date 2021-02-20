@@ -1,7 +1,6 @@
-<p align="center">
 [![Ideas](https://res.cloudinary.com/kevinlangleyjr-dev/image/upload/v1613830978/ideas_h9ngyw.png)](https://shareideas.dev)
+
 Share Ideas!
-</p>
 
 This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
 
