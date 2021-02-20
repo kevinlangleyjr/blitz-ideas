@@ -23,13 +23,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Ensure the `.env.local` file has required environment variables:
 
 ```
-DATABASE_URL=postgresql://<YOUR_DB_USERNAME>@localhost:5432/ideas
+DATABASE_URL=mysql://<YOUR_DB_USERNAME>@localhost:8888/ideas
 ```
 
 Ensure the `.env.test.local` file has required environment variables:
 
 ```
-DATABASE_URL=postgresql://<YOUR_DB_USERNAME>@localhost:5432/ideas_test
+DATABASE_URL=mysql://<YOUR_DB_USERNAME>@localhost:8888/ideas_test
 ```
 
 ## Tests
