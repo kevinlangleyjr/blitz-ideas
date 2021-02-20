@@ -2,6 +2,11 @@ import { Ctx } from 'blitz';
 import createIdea from './createIdea';
 import db from 'db';
 
+const testIdea = {
+  title: 'Libero morbi malesuada',
+  body: 'Aliquam felis commodo aenean himenaeos malesuada mi elit fringilla litora.',
+};
+
 beforeEach( async () => {
   await db.$reset();
 } );
@@ -12,10 +17,7 @@ jest.mock( 'blitz', () => ( {
 
 describe( 'createIdea mutation', () => {
   it( "does throw error if user isn't logged in", async () => {
-    await expect( createIdea( {
-      title: 'Libero morbi malesuada',
-      body: 'Aliquam felis commodo aenean himenaeos malesuada mi elit fringilla litora.',
-    }, {} as Ctx ) ).rejects.toThrowError();
+    await expect( createIdea( testIdea, {} as Ctx ) ).rejects.toThrowError();
   } );
 
   it( 'works correctly when user is logged in', async () => {
@@ -26,11 +28,6 @@ describe( 'createIdea mutation', () => {
         email: 'user@example.com',
       },
     } );
-
-    const testIdea = {
-      title: 'Libero morbi malesuada',
-      body: 'Aliquam felis commodo aenean himenaeos malesuada mi elit fringilla litora.',
-    };
 
     // Create test idea.
     const result = await createIdea(
