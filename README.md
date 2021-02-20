@@ -1,4 +1,7 @@
-[![Blitz.js](https://raw.githubusercontent.com/blitz-js/art/master/github-cover-photo.png)](https://blitzjs.com)
+<p align="center">
+[![Ideas](https://res.cloudinary.com/kevinlangleyjr-dev/image/upload/v1613830978/ideas_h9ngyw.png)](https://shareideas.dev)
+Share Ideas!
+</p>
 
 This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
 
@@ -61,17 +64,17 @@ You can read more about it on the [CLI Overview](https://blitzjs.com/docs/cli-ov
 
 ## What's included?
 
-Here is the starting structure of your app.
-
+Here is the structure of the app.
 ```
 ideas
-├── app/
-│   ├── api/
-│   ├── auth/
-│   │   ├── components/
+├── README.md
+├── app
+│   ├── api
+│   ├── auth
+│   │   ├── components
 │   │   │   ├── LoginForm.tsx
 │   │   │   └── SignupForm.tsx
-│   │   ├── mutations/
+│   │   ├── mutations
 │   │   │   ├── changePassword.ts
 │   │   │   ├── forgotPassword.test.ts
 │   │   │   ├── forgotPassword.ts
@@ -80,47 +83,81 @@ ideas
 │   │   │   ├── resetPassword.test.ts
 │   │   │   ├── resetPassword.ts
 │   │   │   └── signup.ts
-│   │   ├── pages/
+│   │   ├── pages
 │   │   │   ├── forgot-password.tsx
 │   │   │   ├── login.tsx
 │   │   │   ├── reset-password.tsx
 │   │   │   └── signup.tsx
 │   │   └── validations.ts
-│   ├── core/
-│   │   ├── components/
+│   ├── comments
+│   │   ├── components
+│   │   │   ├── CommentForm.tsx
+│   │   │   └── IdeaComments.tsx
+│   │   ├── mutations
+│   │   │   ├── createComment.ts
+│   │   │   ├── deleteComment.ts
+│   │   │   └── updateComment.ts
+│   │   ├── queries
+│   │   │   ├── getComment.ts
+│   │   │   └── getComments.ts
+│   │   └── validations.ts
+│   ├── core
+│   │   ├── components
 │   │   │   ├── Form.tsx
-│   │   │   └── LabeledTextField.tsx
-│   │   ├── hooks/
+│   │   │   ├── LabeledTextField.tsx
+│   │   │   └── LabeledTextareaField.tsx
+│   │   ├── hooks
 │   │   │   └── useCurrentUser.ts
-│   │   └── layouts/
+│   │   └── layouts
 │   │       └── Layout.tsx
-│   ├── pages/
+│   ├── ideas
+│   │   ├── components
+│   │   │   └── IdeaForm.tsx
+│   │   ├── mutations
+│   │   │   ├── createIdea.test.ts
+│   │   │   ├── createIdea.ts
+│   │   │   ├── deleteIdea.ts
+│   │   │   └── updateIdea.ts
+│   │   ├── queries
+│   │   │   ├── getIdea.ts
+│   │   │   └── getIdeas.ts
+│   │   └── validations.ts
+│   ├── pages
 │   │   ├── 404.tsx
 │   │   ├── _app.tsx
 │   │   ├── _document.tsx
+│   │   ├── ideas
+│   │   │   ├── [ideaId]
+│   │   │   │   └── edit.tsx
+│   │   │   ├── [ideaId].tsx
+│   │   │   ├── index.tsx
+│   │   │   └── new.tsx
 │   │   ├── index.test.tsx
 │   │   └── index.tsx
-│   └── users/
-│       └── queries/
+│   └── users
+│       └── queries
 │           └── getCurrentUser.ts
-├── db/
-│   ├── index.ts
-│   ├── schema.prisma
-│   └── seeds.ts
-├── integrations/
-├── mailers/
-│   └── forgotPasswordMailer.ts
-├── public/
-│   ├── favicon.ico*
-│   └── logo.png
-├── test/
-│   ├── setup.ts
-│   └── utils.tsx
-├── README.md
 ├── babel.config.js
 ├── blitz.config.js
+├── db
+│   ├── index.ts
+│   ├── migrations
+│   │   ├── 20210219201255_
+│   │   │   └── migration.sql
+│   │   └── migration_lock.toml
+│   ├── schema.prisma
+│   └── seeds.ts
+├── integrations
 ├── jest.config.js
+├── mailers
+│   └── forgotPasswordMailer.ts
 ├── package.json
+├── public
+│   ├── favicon.ico
+│   └── logo.png
+├── test
+│   ├── setup.ts
+│   └── utils.tsx
 ├── tsconfig.json
 ├── types.d.ts
 ├── types.ts
