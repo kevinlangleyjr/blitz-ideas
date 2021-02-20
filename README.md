@@ -1,10 +1,12 @@
-[![Ideas](https://res.cloudinary.com/kevinlangleyjr-dev/image/upload/v1613830978/ideas_h9ngyw.png)](https://shareideas.dev)
+<p align="center">
+  <a href="https://shareideas.dev/">
+    <img src="https://res.cloudinary.com/kevinlangleyjr-dev/image/upload/v1613830978/ideas_h9ngyw.png">
+  </a>
+</p>
 
-Share Ideas!
+# Share Ideas!
 
 This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
-
-# **name**
 
 ## Getting Started
 
