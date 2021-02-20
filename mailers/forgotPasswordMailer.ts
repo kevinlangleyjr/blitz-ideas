@@ -17,7 +17,7 @@ export function forgotPasswordMailer( { to, token }: ResetPasswordMailer ) {
   const resetUrl = `${origin}/reset-password?token=${token}`;
 
   const msg = {
-    from: 'TODO@example.com',
+    from: 'no-reply@shareideas.dev',
     to,
     subject: 'Your Password Reset Instructions',
     html: `
