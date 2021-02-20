@@ -11,7 +11,6 @@ export default resolver.pipe(
   resolver.zod( UpdateIdea ),
   resolver.authorize(),
   async ( { id, ...data }, ctx: Ctx ) => {
-    console.log( ctx.session.role );
     if ( ctx.session.role !== 'ADMIN' ) {
       const idea = await db.idea.findFirst( { where: { id } } );
 
