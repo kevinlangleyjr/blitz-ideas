@@ -1,6 +1,7 @@
-import { useRouter, BlitzPage } from 'blitz';
+import { invalidateQuery, useRouter, BlitzPage } from 'blitz';
 import Layout from 'app/core/layouts/Layout';
 import { LoginForm } from 'app/auth/components/LoginForm';
+import getCurrentUser from 'app/users/queries/getCurrentUser';
 
 const LoginPage: BlitzPage = () => {
   const router = useRouter();
@@ -9,6 +10,7 @@ const LoginPage: BlitzPage = () => {
     <div>
       <LoginForm
         onSuccess={ () => {
+          invalidateQuery( getCurrentUser );
           const next = ( router.query.next as string ) ?? '/';
           router.push( next );
         } }
