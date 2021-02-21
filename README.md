@@ -25,13 +25,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Ensure the `.env.local` file has required environment variables:
 
 ```
-DATABASE_URL=mysql://<YOUR_DB_USERNAME>@localhost:8888/ideas
+DATABASE_URL=mysql://<DB_USERNAME>@<DB_HOST>:<DB_PORT>/<DB_NAME>
 ```
 
 Ensure the `.env.test.local` file has required environment variables:
 
 ```
-DATABASE_URL=mysql://<YOUR_DB_USERNAME>@localhost:8888/ideas_test
+DATABASE_URL=mysql://<DB_USERNAME>@<DB_HOST>:<DB_PORT>/<TEST_DB_NAME>
 ```
 
 ## Tests
