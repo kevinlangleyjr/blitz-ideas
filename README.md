@@ -6,6 +6,8 @@
 
 # Share Ideas!
 
+[![Build, Lint, and Test](https://github.com/kevinlangleyjr/blitz-ideas/actions/workflows/main.yml/badge.svg)](https://github.com/kevinlangleyjr/blitz-ideas/actions/workflows/main.yml)
+
 This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
 
 ## Getting Started
