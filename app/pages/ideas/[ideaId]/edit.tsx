@@ -23,9 +23,6 @@ export const EditIdea = () => {
 
       <IdeaForm
         submitText="Update Idea"
-        // TODO use a zod schema for form validation
-        //  - Tip: extract mutation's schema into a shared `validations.ts` file and
-        //         then import and use it here
         schema={ UpdateIdea }
         initialValues={ idea }
         onSubmit={ async ( values ) => {
