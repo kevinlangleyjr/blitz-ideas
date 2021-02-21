@@ -18,7 +18,8 @@ export const Idea = () => {
 
     <div>
       <h1>Idea { idea.id }</h1>
-      <pre>{ JSON.stringify( idea, null, 2 ) }</pre>
+      <h2>{ idea.title }</h2>
+      <p>{ idea.body }</p>
 
       <Link href={ `/ideas/${idea.id}/edit` }>
         <a>Edit</a>
@@ -61,7 +62,6 @@ const ShowIdeaPage: BlitzPage = () => {
   );
 };
 
-ShowIdeaPage.authenticate = true;
 ShowIdeaPage.getLayout = ( page ) => <Layout>{ page }</Layout>;
 
 export default ShowIdeaPage;

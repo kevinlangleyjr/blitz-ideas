@@ -9,7 +9,6 @@ const GetComment = z.object( {
 
 export default resolver.pipe(
   resolver.zod( GetComment ),
-  resolver.authorize(),
   async ( { id } ) => {
     // TODO: in multi-tenant app, you must add validation to ensure correct tenant
     const comment = await db.comment.findFirst( { where: { id } } );
