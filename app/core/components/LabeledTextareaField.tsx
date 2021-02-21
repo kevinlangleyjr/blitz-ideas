@@ -24,7 +24,7 @@ export const LabeledTextareaField = forwardRef<HTMLTextAreaElement, LabeledTexta
       <div { ...outerProps }>
         <label>
           { label }
-          <textarea { ...input } disabled={ submitting } { ...props } ref={ ref } />
+          <textarea { ...input } disabled={ submitting } { ...props } ref={ ref } rows={ 20 } cols={ 60 } />
         </label>
 
         { touched && normalizedError && (

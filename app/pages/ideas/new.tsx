@@ -2,6 +2,7 @@ import { Link, useRouter, useMutation, BlitzPage } from 'blitz';
 import Layout from 'app/core/layouts/Layout';
 import createIdea from 'app/ideas/mutations/createIdea';
 import { IdeaForm, FORM_ERROR } from 'app/ideas/components/IdeaForm';
+import { CreateIdea } from 'app/ideas/validations';
 
 const NewIdeaPage: BlitzPage = () => {
   const router = useRouter();
@@ -16,8 +17,11 @@ const NewIdeaPage: BlitzPage = () => {
         // TODO use a zod schema for form validation
         //  - Tip: extract mutation's schema into a shared `validations.ts` file and
         //         then import and use it here
-        // schema={CreateIdea}
-        // initialValues={{}}
+        schema={ CreateIdea }
+        initialValues={ {
+          title: '',
+          body: '',
+        } }
         onSubmit={ async ( values ) => {
           try {
             const idea = await createIdeaMutation(
