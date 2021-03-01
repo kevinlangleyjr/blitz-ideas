@@ -10,7 +10,6 @@ const UserInfo = () => {
   if ( currentUser ) {
     return (
       <button
-        className="button small"
         onClick={ async () => {
           await logoutMutation();
         } }
@@ -22,13 +21,13 @@ const UserInfo = () => {
     return (
       <>
         <Link href="/signup">
-          <a className="button small">
-            <strong>Sign Up</strong>
+          <a>
+            Sign Up
           </a>
         </Link>
         <Link href="/login">
-          <a className="button small">
-            <strong>Login</strong>
+          <a>
+            Login
           </a>
         </Link>
       </>
@@ -39,6 +38,11 @@ const UserInfo = () => {
 const Header = () => {
   return (
     <header>
+      <Link href="/">
+        <a>
+          Ideas
+        </a>
+      </Link>
       <Suspense fallback={ <div>Loading...</div> }>
         <UserInfo />
       </Suspense>

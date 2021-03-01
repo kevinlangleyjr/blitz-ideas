@@ -48,12 +48,6 @@ export const Idea = () => {
 const ShowIdeaPage: BlitzPage = () => {
   return (
     <div>
-      <p>
-        <Link href="/ideas">
-          <a>Ideas</a>
-        </Link>
-      </p>
-
       <Suspense fallback={ <div>Loading...</div> }>
         <Idea />
         <IdeaCommentsList />

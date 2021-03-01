@@ -37,12 +37,6 @@ const NewIdeaPage: BlitzPage = () => {
           }
         } }
       />
-
-      <p>
-        <Link href="/ideas">
-          <a>Ideas</a>
-        </Link>
-      </p>
     </div>
   );
 };

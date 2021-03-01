@@ -52,12 +52,6 @@ const EditIdeaPage: BlitzPage = () => {
       <Suspense fallback={ <div>Loading...</div> }>
         <EditIdea />
       </Suspense>
-
-      <p>
-        <Link href="/ideas">
-          <a>Ideas</a>
-        </Link>
-      </p>
     </div>
   );
 };
