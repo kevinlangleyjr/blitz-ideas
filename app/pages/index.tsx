@@ -6,7 +6,7 @@ import useIdeas from 'app/ideas/hooks/useIdeas';
 export const IdeasList = () => {
   const router = useRouter();
   const page = Number( router.query.page ) || 0;
-  const [ { ideas, hasMore } ] = useIdeas( page );
+  const { ideas, hasMore } = useIdeas( page );
 
   const goToPreviousPage = () => router.push( { query: { page: page - 1 } } );
   const goToNextPage = () => router.push( { query: { page: page + 1 } } );

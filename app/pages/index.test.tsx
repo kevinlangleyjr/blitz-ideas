@@ -12,15 +12,10 @@ test( 'renders blitz documentation link', () => {
   // when you remove the the default content from the page
 
   // This is an example on how to mock api hooks when testing
-  mockUseIdeas.mockReturnValue( [
-    {
-      ideas: [],
-      hasMore: false,
-      nextPage: { take: 1, skip: 0 },
-      count: 0
-    },
-    {}
-  ] );
+  mockUseIdeas.mockReturnValue( {
+    ideas: [],
+    hasMore: false,
+  } );
 
   const { getByText } = render( <Home /> );
   const linkElement = getByText( /Create Idea/i );
