@@ -1,4 +1,4 @@
-import { Link, useRouter, useMutation, BlitzPage } from 'blitz';
+import { useRouter, useMutation, BlitzPage } from 'blitz';
 import Layout from 'app/core/layouts/Layout';
 import createIdea from 'app/ideas/mutations/createIdea';
 import { IdeaForm, FORM_ERROR } from 'app/ideas/components/IdeaForm';
