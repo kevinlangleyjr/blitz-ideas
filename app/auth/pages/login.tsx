@@ -1,6 +1,5 @@
 import { invalidateQuery, useRouter, BlitzPage } from 'blitz';
-import Layout from 'app/core/layouts/Layout';
-import { LoginForm } from 'app/auth/components/LoginForm';
+import LoginForm from 'app/auth/components/LoginForm';
 import getCurrentUser from 'app/users/queries/getCurrentUser';
 
 const LoginPage: BlitzPage = () => {
