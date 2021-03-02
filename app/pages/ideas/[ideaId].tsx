@@ -1,15 +1,15 @@
 import { Suspense } from 'react';
-import { Head, Link, useRouter, useQuery, useParam, BlitzPage, useMutation } from 'blitz';
+import { Head, Link, useRouter, useParam, BlitzPage, useMutation } from 'blitz';
 import Layout from 'app/core/layouts/Layout';
 import IdeaCommentsList from 'app/comments/components/IdeaComments';
-import getIdea from 'app/ideas/queries/getIdea';
+import useIdea from 'app/ideas/hooks/useIdea';
 import deleteIdea from 'app/ideas/mutations/deleteIdea';
 
 export const Idea = () => {
   const router = useRouter();
   const ideaId = useParam( 'ideaId', 'number' );
   const [ deleteIdeaMutation ] = useMutation( deleteIdea );
-  const [ idea ] = useQuery( getIdea, { id: ideaId } );
+  const idea = useIdea( ideaId );
 
   return <>
     <Head>

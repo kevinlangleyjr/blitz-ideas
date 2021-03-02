@@ -1,18 +1,12 @@
 import { Suspense } from 'react';
-import { Link, usePaginatedQuery, useRouter, BlitzPage } from 'blitz';
+import { Link, useRouter, BlitzPage } from 'blitz';
 import Layout from 'app/core/layouts/Layout';
-import getIdeas from 'app/ideas/queries/getIdeas';
-
-const ITEMS_PER_PAGE = 10;
+import useIdeas from 'app/ideas/hooks/useIdeas';
 
 export const IdeasList = () => {
   const router = useRouter();
   const page = Number( router.query.page ) || 0;
-  const [ { ideas, hasMore } ] = usePaginatedQuery( getIdeas, {
-    orderBy: { id: 'asc' },
-    skip: ITEMS_PER_PAGE * page,
-    take: ITEMS_PER_PAGE,
-  } );
+  const [ { ideas, hasMore } ] = useIdeas( page );
 
   const goToPreviousPage = () => router.push( { query: { page: page - 1 } } );
   const goToNextPage = () => router.push( { query: { page: page + 1 } } );
