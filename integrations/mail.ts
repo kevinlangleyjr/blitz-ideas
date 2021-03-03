@@ -1,6 +1,6 @@
 import { log } from '@blitzjs/display';
-import { sendgridDriver } from './drivers/sendgrid';
-import { previewDriver } from './drivers/preview-email';
+import { sendgridDriver } from './mail-drivers/sendgrid';
+import { previewDriver } from './mail-drivers/preview-email';
 
 const mailDrivers = {
   SENDGRID: sendgridDriver,
