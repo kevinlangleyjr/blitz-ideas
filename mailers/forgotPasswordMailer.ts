@@ -4,7 +4,7 @@
  * and then export it. That way you can import here and anywhere else
  * and use it straight away.
  */
-import { mail } from 'mailers/mail';
+import { mail } from 'integrations/mail';
 
 type ResetPasswordMailer = {
   to: string
