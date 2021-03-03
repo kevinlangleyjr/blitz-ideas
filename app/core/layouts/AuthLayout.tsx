@@ -1,20 +1,18 @@
 import { ReactNode } from 'react';
 import Head from './components/Head';
-import Header from './components/Header';
 
-type LayoutProps = {
+type AuthLayoutProps = {
   title?: string
   children: ReactNode
 }
 
-const Layout = ( { title, children }: LayoutProps ) => {
+const AuthLayout = ( { title, children }: AuthLayoutProps ) => {
   return (
     <>
       <Head title={ title } />
-      <Header />
       { children }
     </>
   );
 };
 
-export default Layout;
+export default AuthLayout;
