@@ -34,8 +34,6 @@ export function forgotPasswordMailer( { to, token }: ResetPasswordMailer ) {
   return {
     async send() {
       if ( process.env.NODE_ENV === 'production' ) {
-        // TODO - send the production email, like this:
-        // await postmark.sendEmail(msg)
         SendGridMail.send( msg );
         throw new Error( 'No production email implementation in mailers/forgotPasswordMailer' );
       } else {
