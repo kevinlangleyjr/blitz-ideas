@@ -5,6 +5,7 @@
  * and use it straight away.
  */
 import previewEmail from 'preview-email';
+import SendGridMail from 'integrations/sendgrid';
 
 type ResetPasswordMailer = {
   to: string
@@ -35,6 +36,7 @@ export function forgotPasswordMailer( { to, token }: ResetPasswordMailer ) {
       if ( process.env.NODE_ENV === 'production' ) {
         // TODO - send the production email, like this:
         // await postmark.sendEmail(msg)
+        SendGridMail.send( msg );
         throw new Error( 'No production email implementation in mailers/forgotPasswordMailer' );
       } else {
         // Preview email in the browser
