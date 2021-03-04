@@ -10,7 +10,6 @@ type SignupFormProps = {
 
 export const SignupForm = ( props: SignupFormProps ) => {
   const [ signupMutation ] = useMutation( signup );
-  console.log( 'form form form' );
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
