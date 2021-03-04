@@ -45,17 +45,9 @@ const IdeasPage: BlitzPage = () => {
       <title>Ideas</title>
     </Head>
 
-    <div>
-      <p>
-        <Link href="/ideas/new">
-          <a>Create Idea</a>
-        </Link>
-      </p>
-
-      <Suspense fallback={ <div>Loading...</div> }>
-        <IdeasList />
-      </Suspense>
-    </div>
+    <Suspense fallback={ <div>Loading...</div> }>
+      <IdeasList />
+    </Suspense>
   </>;
 };
 

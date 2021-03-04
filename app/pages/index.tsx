@@ -12,16 +12,26 @@ export const IdeasList = () => {
   const goToNextPage = () => router.push( { query: { page: page + 1 } } );
 
   return (
-    <div>
-      <ul>
-        { ideas.map( ( idea ) => (
-          <li key={ idea.id }>
+    <div className="mt-8 max-w-3xl mx-auto sm:px-6 lg:max-w-7xl">
+      { ideas.map( ( idea ) => (
+        <div className="flex" key={ idea.id }>
+          <div className="mr-4 flex-shrink-0">
+            <svg className="h-16 w-16 border border-gray-300 bg-white text-gray-300" preserveAspectRatio="none" stroke="currentColor" fill="none" viewBox="0 0 200 200" aria-hidden="true">
+              <path vector-effect="non-scaling-stroke" strokeWidth="1" d="M0 0l200 200M0 200L200 0" />
+            </svg>
+          </div>
+          <div>
             <Link href={ `/ideas/${idea.id}` }>
-              <a>{ idea.title }</a>
+              <a>
+                <h4 className="text-lg font-bold">{ idea.title }</h4>
+              </a>
             </Link>
-          </li>
-        ) ) }
-      </ul>
+            <p className="mt-1">
+              { idea.body }
+            </p>
+          </div>
+        </div>
+      ) ) }
 
       <button disabled={ page === 0 } onClick={ goToPreviousPage }>
         Previous
@@ -34,19 +44,13 @@ export const IdeasList = () => {
 };
 
 const Home: BlitzPage = () => {
-  return <>
+  return (
     <div>
-      <p>
-        <Link href="/ideas/new">
-          <a>Create Idea</a>
-        </Link>
-      </p>
-
       <Suspense fallback={ <div>Loading...</div> }>
         <IdeasList />
       </Suspense>
     </div>
-  </>;
+  );
 };
 
 Home.suppressFirstRenderFlicker = true;
