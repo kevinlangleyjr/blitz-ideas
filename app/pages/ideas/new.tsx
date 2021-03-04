@@ -9,7 +9,7 @@ const NewIdeaPage: BlitzPage = () => {
   const [ createIdeaMutation ] = useMutation( createIdea );
 
   return (
-    <div>
+    <div className="mt-8 max-w-3xl mx-auto sm:px-6 lg:max-w-7xl">
       <h1>Create New Idea</h1>
 
       <IdeaForm

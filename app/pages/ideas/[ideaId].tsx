@@ -16,7 +16,7 @@ export const Idea = () => {
       <title>Idea { idea.id }</title>
     </Head>
 
-    <div>
+    <div className="mt-8 max-w-3xl mx-auto sm:px-6 lg:max-w-7xl">
       <h1>Idea { idea.id }</h1>
       <h2>{ idea.title }</h2>
       <p>{ idea.body }</p>

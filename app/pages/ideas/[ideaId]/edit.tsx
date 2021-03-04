@@ -17,7 +17,7 @@ export const EditIdea = () => {
       <title>Edit Idea { idea.id }</title>
     </Head>
 
-    <div>
+    <div className="mt-8 max-w-3xl mx-auto sm:px-6 lg:max-w-7xl">
       <h1>Edit Idea { idea.id }</h1>
       <pre>{ JSON.stringify( idea ) }</pre>
 
