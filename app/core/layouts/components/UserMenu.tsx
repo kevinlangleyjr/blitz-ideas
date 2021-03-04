@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useMutation } from 'blitz';
 import logout from 'app/auth/mutations/logout';
 import { useCurrentUser } from 'app/core/hooks/useCurrentUser';
-import HeaderMenu from './HeaderMenu';
 
 const UserMenu = () => {
   const currentUser = useCurrentUser();
