@@ -32,3 +32,16 @@ Cypress.Commands.add( 'signup', ( { email, password } ) => {
   cy.get( 'form' ).find( 'input[name="password"]' ).type( password );
   cy.contains( 'button', /Register/i ).click();
 } );
+
+Cypress.Commands.add( 'login', ( { email, password } ) => {
+  cy.contains( 'a', /Login/i ).click();
+
+  cy.get( 'form' ).find( 'input[name="email"]' ).type( email );
+  cy.get( 'form' ).find( 'input[name="password"]' ).type( password );
+  cy.contains( 'button', /Login/i ).click();
+} );
+
+Cypress.Commands.add( 'logout', () => {
+  cy.get( '.user-menu-button' ).click();
+  cy.contains( 'button', /Sign out/i ).click();
+} );

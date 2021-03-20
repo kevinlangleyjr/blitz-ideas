@@ -7,11 +7,13 @@ describe( 'index page', () => {
 
   it( 'goes to the signup page', () => {
     cy.contains( 'a', /Sign Up/i ).click();
+    cy.wait( 1000 );
     cy.location( 'pathname' ).should( 'equal', '/signup' );
   } );
 
   it( 'goes to the login page', () => {
     cy.contains( 'a', /Login/i ).click();
+    cy.wait( 1000 );
     cy.location( 'pathname' ).should( 'equal', '/login' );
   } );
 
@@ -22,8 +24,7 @@ describe( 'index page', () => {
     cy.wait( 1000 );
 
     cy.location( 'pathname' ).should( 'equal', '/' );
-    cy.get( '.user-menu-button' ).click();
-    cy.contains( 'button', /Sign out/i ).click();
+    cy.logout();
   } );
 
   it( 'allows the user to log in', () => {
@@ -36,16 +37,12 @@ describe( 'index page', () => {
     cy.contains( 'button', /Sign out/i ).click();
 
     cy.wait( 1000 );
-    cy.contains( 'a', /Login/i ).click();
 
-    cy.get( 'form' ).find( 'input[name="email"]' ).type( user.email );
-    cy.get( 'form' ).find( 'input[name="password"]' ).type( user.password );
-    cy.contains( 'button', /Login/i ).click();
+    cy.login( user );
 
     cy.location( 'pathname' ).should( 'equal', '/' );
     cy.wait( 1000 );
-    cy.get( '.user-menu-button' ).click();
-    cy.contains( 'button', /Sign out/i );
+    cy.logout();
   } );
 
   it( 'allows the user to logout', () => {
@@ -54,13 +51,17 @@ describe( 'index page', () => {
     cy.signup( user );
     cy.wait( 1000 );
 
-    cy.get( '.user-menu-button' ).click();
-
-    cy.contains( 'button', /Sign out/i ).click();
+    cy.logout();
 
     cy.location( 'pathname' ).should( 'equal', '/' );
     cy.wait( 1000 );
     cy.contains( 'a', /Login/i );
+  } );
+
+  it( 'redirects to login when click submit idea button', () => {
+    cy.contains( 'a', /Submit an Idea/i ).click();
+    cy.wait( 1000 );
+    cy.contains( 'h2', /Sign in to your account/i );
   } );
 } );
 
