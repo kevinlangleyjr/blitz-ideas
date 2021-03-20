@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# Share Ideas!
+# [Share Ideas](https://shareideas.dev)
 
 [![Build, Lint, and Test](https://github.com/kevinlangleyjr/blitz-ideas/actions/workflows/main.yml/badge.svg)](https://github.com/kevinlangleyjr/blitz-ideas/actions/workflows/main.yml)
 
