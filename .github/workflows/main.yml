@@ -66,7 +66,7 @@ jobs:
         run: yarn blitz prisma migrate dev --preview-feature
 
       # Jest Tests (API/Frontend)
-      - name: Run Jest Tests
+      - name: Run all tests
         run: yarn test
 
       # E2E Tests via Cypress

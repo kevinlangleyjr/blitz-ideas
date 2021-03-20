@@ -16,7 +16,7 @@ const UserMenu = () => {
               { ( { open } ) => (
                 <>
                   <div>
-                    <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <Menu.Button className="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 user-menu-button">
                       <img className="h-8 w-8 rounded-full border-2 border-gray-500" src="/user.svg" alt="" />
                     </Menu.Button>
                   </div>
