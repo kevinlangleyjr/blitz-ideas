@@ -62,7 +62,7 @@ model Idea {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String
-  body      String
+  body      String   @db.LongText
   author    User     @relation(fields: [authorId], references: [id])
   authorId  Int
   comments  Comment[]
@@ -72,7 +72,7 @@ model Comment {
   id        Int      @default(autoincrement()) @id
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  body      String
+  body      String   @db.LongText
   idea      Idea     @relation(fields: [ideaId], references: [id])
   ideaId    Int
   author    User     @relation(fields: [authorId], references: [id])
