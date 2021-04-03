@@ -50,3 +50,6 @@ lib-cov
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+
+# Don't ignore sql files under migrations.
+!db/migrations/*.sql
