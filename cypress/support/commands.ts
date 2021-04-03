@@ -45,3 +45,12 @@ Cypress.Commands.add( 'logout', () => {
   cy.get( '.user-menu-button' ).click();
   cy.contains( 'button', /Sign out/i ).click();
 } );
+
+Cypress.Commands.add( 'submitIdea', ( { title, body } ) => {
+  cy.contains( 'a', /Submit an Idea/i ).click();
+
+  cy.contains( 'h1', 'Create New Idea' );
+  cy.get( 'form' ).find( 'input[name="title"]' ).type( title );
+  cy.get( 'form' ).find( 'textarea[name="body"]' ).type( body );
+  cy.contains( 'button', /Create Idea/i ).click();
+} );

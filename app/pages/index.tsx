@@ -16,9 +16,7 @@ export const IdeasList = () => {
       { ideas.map( ( idea ) => (
         <div className="flex" key={ idea.id }>
           <div className="mr-4 flex-shrink-0">
-            <svg className="h-16 w-16 border border-gray-300 bg-white text-gray-300" preserveAspectRatio="none" stroke="currentColor" fill="none" viewBox="0 0 200 200" aria-hidden="true">
-              <path vectorEffect="non-scaling-stroke" strokeWidth="1" d="M0 0l200 200M0 200L200 0" />
-            </svg>
+            <img className="h-16 w-16 border-2 border-gray-500" src="/user.svg" alt="" />
           </div>
           <div>
             <Link href={ `/ideas/${idea.id}` }>
@@ -33,12 +31,24 @@ export const IdeasList = () => {
         </div>
       ) ) }
 
-      <button disabled={ page === 0 } onClick={ goToPreviousPage }>
-        Previous
-      </button>
-      <button disabled={ ! hasMore } onClick={ goToNextPage }>
-        Next
-      </button>
+      { ( page !== 0 || hasMore ) && (
+        <div className="flex align-middle justify-between">
+          <button
+            disabled={ page === 0 }
+            onClick={ goToPreviousPage }
+            className="flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+              Previous
+          </button>
+          <button
+            disabled={ ! hasMore }
+            onClick={ goToNextPage }
+            className="flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+              Next
+          </button>
+        </div>
+      ) }
     </div>
   );
 };

@@ -30,7 +30,7 @@ describe( 'updateIdea mutation', () => {
     const idea = await db.idea.create( {
       data: {
         ...testIdea,
-        userId: user.id,
+        authorId: user.id,
       },
     } );
 
@@ -62,7 +62,7 @@ describe( 'updateIdea mutation', () => {
     const idea = await db.idea.create( {
       data: {
         ...testIdea,
-        userId: user.id,
+        authorId: user.id,
       },
     } );
 
@@ -95,7 +95,7 @@ describe( 'updateIdea mutation', () => {
     const idea = await db.idea.create( {
       data: {
         ...testIdea,
-        userId: user.id,
+        authorId: user.id,
       },
     } );
 
@@ -143,7 +143,7 @@ describe( 'updateIdea mutation', () => {
     const idea = await db.idea.create( {
       data: {
         ...testIdea,
-        userId: user.id,
+        authorId: user.id,
       },
     } );
 

@@ -30,7 +30,7 @@ describe( 'deleteIdea mutation', () => {
     const idea = await db.idea.create( {
       data: {
         ...testIdea,
-        userId: user.id,
+        authorId: user.id,
       },
     } );
 
@@ -58,7 +58,7 @@ describe( 'deleteIdea mutation', () => {
     const idea = await db.idea.create( {
       data: {
         ...testIdea,
-        userId: user.id,
+        authorId: user.id,
       },
     } );
 
@@ -87,7 +87,7 @@ describe( 'deleteIdea mutation', () => {
     const idea = await db.idea.create( {
       data: {
         ...testIdea,
-        userId: user.id,
+        authorId: user.id,
       },
     } );
 
@@ -127,7 +127,7 @@ describe( 'deleteIdea mutation', () => {
     const idea = await db.idea.create( {
       data: {
         ...testIdea,
-        userId: user.id,
+        authorId: user.id,
       },
     } );
 

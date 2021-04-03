@@ -18,7 +18,7 @@ export default resolver.pipe(
         throw new NotFoundError();
       }
 
-      if ( idea.userId !== ctx.session.userId ) {
+      if ( idea.authorId !== ctx.session.userId ) {
         throw new AuthorizationError( 'You are not authorized to edit this idea.' );
       }
     }

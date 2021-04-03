@@ -24,6 +24,7 @@ model User {
   tokens   Token[]
   sessions Session[]
   ideas    Idea[]
+  comments Comment[]
 }
 
 model Session {
@@ -74,4 +75,6 @@ model Comment {
   body      String
   idea      Idea     @relation(fields: [ideaId], references: [id])
   ideaId    Int
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
 }

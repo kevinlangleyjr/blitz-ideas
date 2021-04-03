@@ -12,11 +12,7 @@ export default resolver.pipe(
 
     const idea = await db.idea.create( { data: {
       ...input,
-      author: {
-        connect: {
-          id: ctx.session.userId,
-        },
-      },
+      authorId: ctx.session.userId,
     } } );
 
     return idea;

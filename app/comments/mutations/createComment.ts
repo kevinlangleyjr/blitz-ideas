@@ -1,4 +1,4 @@
-import { resolver } from 'blitz';
+import { Ctx, resolver } from 'blitz';
 import db from 'db';
 import * as z from 'zod';
 
@@ -10,9 +10,17 @@ const CreateComment = z.object( {
 export default resolver.pipe(
   resolver.zod( CreateComment ),
   resolver.authorize(),
-  async ( input ) => {
-    // TODO: in multi-tenant app, you must add validation to ensure correct tenant
-    const comment = await db.comment.create( { data: input } );
+  async ( input, ctx: Ctx ) => {
+    if ( ! ctx.session.userId ) {
+      return;
+    }
+
+    const comment = await db.comment.create( {
+      data: {
+        ...input,
+        authorId: ctx.session.userId,
+      }
+    } );
 
     return comment;
   },
