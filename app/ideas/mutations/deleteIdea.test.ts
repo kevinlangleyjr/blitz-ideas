@@ -14,8 +14,10 @@ beforeEach( async () => {
   await db.$reset();
 } );
 
+const generatedToken = 'plain-token';
 jest.mock( 'blitz', () => ( {
-  ...jest.requireActual( 'blitz' )!,
+  ...jest.requireActual<object>( 'blitz' )!,
+  generateToken: () => generatedToken,
 } ) );
 
 describe( 'deleteIdea mutation', () => {
