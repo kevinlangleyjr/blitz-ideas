@@ -69,13 +69,16 @@ You can read more about it on the [CLI Overview](https://blitzjs.com/docs/cli-ov
 
 Here is the structure of the app.
 ```
+.
 ideas
 ├── README.md
 ├── app
 │   ├── api
 │   ├── auth
 │   │   ├── components
+│   │   │   ├── ForgotPasswordForm.tsx
 │   │   │   ├── LoginForm.tsx
+│   │   │   ├── ResetPasswordForm.tsx
 │   │   │   └── SignupForm.tsx
 │   │   ├── mutations
 │   │   │   ├── changePassword.ts
@@ -111,15 +114,30 @@ ideas
 │   │   │   └── LabeledTextareaField.tsx
 │   │   ├── hooks
 │   │   │   └── useCurrentUser.ts
-│   │   └── layouts
-│   │       └── Layout.tsx
+│   │   ├── layouts
+│   │   │   ├── AuthLayout.tsx
+│   │   │   ├── Layout.tsx
+│   │   │   └── components
+│   │   │       ├── Head.tsx
+│   │   │       ├── Header.tsx
+│   │   │       ├── HeaderMenu.tsx
+│   │   │       ├── MenuItemLink.tsx
+│   │   │       ├── MobileMenu.tsx
+│   │   │       └── UserMenu.tsx
+│   │   └── styles
+│   │       └── index.css
 │   ├── ideas
 │   │   ├── components
 │   │   │   └── IdeaForm.tsx
+│   │   ├── hooks
+│   │   │   ├── useIdea.ts
+│   │   │   └── useIdeas.ts
 │   │   ├── mutations
 │   │   │   ├── createIdea.test.ts
 │   │   │   ├── createIdea.ts
+│   │   │   ├── deleteIdea.test.ts
 │   │   │   ├── deleteIdea.ts
+│   │   │   ├── updateIdea.test.ts
 │   │   │   └── updateIdea.ts
 │   │   ├── queries
 │   │   │   ├── getIdea.ts
@@ -142,22 +160,61 @@ ideas
 │           └── getCurrentUser.ts
 ├── babel.config.js
 ├── blitz.config.js
+├── cypress
+│   ├── fixtures
+│   │   └── example.json
+│   ├── index.d.ts
+│   ├── integration
+│   │   ├── ideas.test.ts
+│   │   └── index.test.ts
+│   ├── plugins
+│   │   └── index.ts
+│   ├── screenshots
+│   ├── support
+│   │   ├── commands.ts
+│   │   ├── helpers.ts
+│   │   └── index.ts
+│   ├── tsconfig.json
+│   └── videos
+├── cypress.json
 ├── db
 │   ├── index.ts
 │   ├── migrations
-│   │   ├── 20210219201255_
+│   │   ├── 20210403001337_
 │   │   │   └── migration.sql
 │   │   └── migration_lock.toml
 │   ├── schema.prisma
 │   └── seeds.ts
 ├── integrations
+│   ├── mail-drivers
+│   │   ├── preview-email.ts
+│   │   └── sendgrid.ts
+│   └── mail.ts
 ├── jest.config.js
 ├── mailers
 │   └── forgotPasswordMailer.ts
 ├── package.json
+├── postcss.config.js
 ├── public
+│   ├── android-chrome-192x192.png
+│   ├── android-chrome-512x512.png
+│   ├── apple-touch-icon.png
+│   ├── browserconfig.xml
+│   ├── favicon-16x16.png
+│   ├── favicon-32x32.png
 │   ├── favicon.ico
-│   └── logo.png
+│   ├── ideas.png
+│   ├── logo-large.svg
+│   ├── logo.svg
+│   ├── mstile-144x144.png
+│   ├── mstile-150x150.png
+│   ├── mstile-310x150.png
+│   ├── mstile-310x310.png
+│   ├── mstile-70x70.png
+│   ├── safari-pinned-tab.svg
+│   ├── site.webmanifest
+│   └── user.svg
+├── tailwind.config.js
 ├── test
 │   ├── setup.ts
 │   └── utils.tsx
