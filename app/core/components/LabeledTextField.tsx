@@ -32,7 +32,11 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
       parse: props.type === 'number' ? Number : undefined,
     } );
 
-    const normalizedError = Array.isArray( error ) ? error.join( ', ' ) : error || submitError;
+    let normalizedError = Array.isArray( error ) ? error.join( ', ' ) : error || submitError;
+
+    if ( normalizedError === 'Required' ) {
+      normalizedError = `${ label } is required.`;
+    }
 
     return (
       <>

@@ -10,9 +10,12 @@ const NewIdeaPage: BlitzPage = () => {
 
   return (
     <div className="mt-8 max-w-3xl mx-auto sm:px-6 lg:max-w-7xl">
-      <h1>Create New Idea</h1>
+      <h1 className="text-2xl mb-3">Create New Idea</h1>
 
       <IdeaForm
+        submitProps={ {
+          className: 'flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+        } }
         submitText="Create Idea"
         schema={ CreateIdea }
         initialValues={ {

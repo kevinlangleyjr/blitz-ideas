@@ -30,7 +30,11 @@ export const LabeledTextareaField = forwardRef<HTMLTextAreaElement, LabeledTexta
       meta: { touched, error, submitError, submitting },
     } = useField( name );
 
-    const normalizedError = Array.isArray( error ) ? error.join( ', ' ) : error || submitError;
+    let normalizedError = Array.isArray( error ) ? error.join( ', ' ) : error || submitError;
+
+    if ( normalizedError === 'Required' ) {
+      normalizedError = `${ label } is required.`;
+    }
 
     return (
       <>

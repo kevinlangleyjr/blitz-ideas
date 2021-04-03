@@ -23,6 +23,7 @@ model User {
 
   tokens   Token[]
   sessions Session[]
+  ideas    Idea[]
 }
 
 model Session {
@@ -61,7 +62,8 @@ model Idea {
   updatedAt DateTime @updatedAt
   title     String
   body      String
-  author    User
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
   comments  Comment[]
 }
 

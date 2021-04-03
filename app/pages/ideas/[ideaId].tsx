@@ -17,30 +17,40 @@ export const Idea = () => {
     </Head>
 
     <div className="mt-8 max-w-3xl mx-auto sm:px-6 lg:max-w-7xl">
-      <h1>Idea { idea.id }</h1>
-      <h2>{ idea.title }</h2>
-      <p>{ idea.body }</p>
-
-      <Link href={ `/ideas/${idea.id}/edit` }>
-        <a>Edit</a>
-      </Link>
-
-      <button
-        type="button"
-        onClick={ async () => {
-          if ( window.confirm( 'This will be deleted' ) ) {
-            try {
-              await deleteIdeaMutation( { id: idea.id } );
-              router.push( '/ideas' );
-            } catch( error ) {
-              console.error( error );
-            }
-          }
-        } }
-        style={ { marginLeft: '0.5rem' } }
-      >
-        Delete
-      </button>
+      <article key={ idea.id }>
+        <div className="flex">
+          <div className="mr-4 flex-shrink-0">
+            <img className="h-12 w-12 border-2 border-gray-500" src="/user.svg" alt="" />
+          </div>
+          <div>
+            <h1 className="text-lg font-bold">{ idea.title }</h1>
+            <p className="mt-1">
+              { idea.body }
+            </p>
+          </div>
+        </div>
+        <footer className="flex mt-3">
+          <Link href={ `/ideas/${idea.id}/edit` }>
+            <a className="flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Edit</a>
+          </Link>
+          <button
+            type="button"
+            onClick={ async () => {
+              if ( window.confirm( 'This will be deleted' ) ) {
+                try {
+                  await deleteIdeaMutation( { id: idea.id } );
+                  router.push( '/ideas' );
+                } catch ( error ) {
+                  console.error( error );
+                }
+              }
+            } }
+            className="flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ml-2"
+          >
+            Delete
+          </button>
+        </footer>
+      </article>
     </div>
   </>;
 };
