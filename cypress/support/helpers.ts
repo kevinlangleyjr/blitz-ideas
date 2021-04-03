@@ -1,9 +1,8 @@
 import * as faker from 'faker';
 
 export const createRandomUser = () => {
-  const random = Math.round( Math.random() * 100000 ).toString();
-  const email = `test_${random}@example.com`;
-  const password = `password_${random}`;
+  const email = faker.internet.email();
+  const password = faker.internet.password();
 
   return { email, password };
 };

@@ -8,16 +8,20 @@ describe( 'create new idea', () => {
         cy.signup( user );
         cy.wait( 1000 );
 
-        [ ...Array( 15 ) ].map( ( _, i ) => {
+        [ ...Array( 11 ) ].map( () => {
             const idea = createIdea();
             cy.contains( 'a', /Submit an Idea/i ).click();
-            cy.wait( 1000 );
-
             cy.submitIdea( idea );
             cy.wait( 1000 );
             cy.contains( 'h1', idea.title );
             cy.contains( 'p', idea.body );
+
+            return idea;
         } );
+
+        cy.visit( '/' );
+        cy.contains( 'button', 'Next' );
+
     } );
 } );
 
